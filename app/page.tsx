@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { InteractionPrompt } from "@/components/shared/InteractionPrompt";
+import { HUD } from "@/components/shared/HUD";
 
 const World = dynamic(
   () => import("@/components/3d/World").then((mod) => ({ default: mod.World })),
@@ -17,6 +18,7 @@ export default function Home() {
     <>
       <World />
       <InteractionPrompt />
+      <HUD />
     </>
   );
 }
