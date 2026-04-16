@@ -6,6 +6,7 @@ import { Ground } from "./environment/Ground";
 import { Sky } from "./environment/Sky";
 import { Lights } from "./environment/Lights";
 import { PhysicsWorld } from "./PhysicsWorld";
+import { Principal } from "./Principal";
 
 const keyboardMap = [
   { name: "forward", keys: ["ArrowUp", "KeyW"] },
@@ -29,6 +30,7 @@ export function World() {
         <Sky />
         <PhysicsWorld>
           <Ground />
+          <Principal />
         </PhysicsWorld>
       </Canvas>
     </KeyboardControls>
