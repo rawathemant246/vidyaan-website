@@ -8,7 +8,7 @@ import { DoorTrigger } from "./DoorTrigger";
 import { useRoomTransformation } from "./RoomTransformation";
 import { ROOMS } from "@/lib/room-data";
 
-const room = ROOMS[0]; // Classroom
+const room = ROOMS.find((r) => r.id === 2)!;
 
 export function Classroom() {
   const roomCenter = useMemo(
