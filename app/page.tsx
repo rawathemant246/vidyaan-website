@@ -15,10 +15,10 @@ const World = dynamic(
 
 export default function Home() {
   return (
-    <>
+    <main className="fixed inset-0 w-screen h-screen overflow-hidden">
       <World />
       <InteractionPrompt />
       <HUD />
-    </>
+    </main>
   );
 }
