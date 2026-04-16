@@ -1,14 +1,17 @@
 "use client";
 
 import { RigidBody } from "@react-three/rapier";
+import * as THREE from "three";
 import type { RoomConfig } from "@/lib/room-data";
 
 interface RoomShellProps {
   room: RoomConfig;
   children?: React.ReactNode;
+  leftWallRef?: (el: THREE.Mesh | null) => void;
+  rightWallRef?: (el: THREE.Mesh | null) => void;
 }
 
-export function RoomShell({ room, children }: RoomShellProps) {
+export function RoomShell({ room, children, leftWallRef, rightWallRef }: RoomShellProps) {
   const [x, y, z] = room.position;
   const [w, h, d] = room.size;
   const wallThickness = 0.3;
@@ -37,7 +40,7 @@ export function RoomShell({ room, children }: RoomShellProps) {
 
       {/* Left wall */}
       <RigidBody type="fixed" colliders="cuboid">
-        <mesh castShadow receiveShadow position={[-w / 2, h / 2, 0]}>
+        <mesh ref={leftWallRef} castShadow receiveShadow position={[-w / 2, h / 2, 0]}>
           <boxGeometry args={[wallThickness, h, d]} />
           <meshStandardMaterial color="#E8E0D0" />
         </mesh>
@@ -45,7 +48,7 @@ export function RoomShell({ room, children }: RoomShellProps) {
 
       {/* Right wall */}
       <RigidBody type="fixed" colliders="cuboid">
-        <mesh castShadow receiveShadow position={[w / 2, h / 2, 0]}>
+        <mesh ref={rightWallRef} castShadow receiveShadow position={[w / 2, h / 2, 0]}>
           <boxGeometry args={[wallThickness, h, d]} />
           <meshStandardMaterial color="#E8E0D0" />
         </mesh>
