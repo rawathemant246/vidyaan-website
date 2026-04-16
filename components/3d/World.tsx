@@ -8,6 +8,8 @@ import { Lights } from "./environment/Lights";
 import { PhysicsWorld } from "./PhysicsWorld";
 import { Principal } from "./Principal";
 import { CameraRig } from "./CameraRig";
+import { RoomShell } from "./rooms/RoomShell";
+import { ROOMS } from "@/lib/room-data";
 
 const keyboardMap = [
   { name: "forward", keys: ["ArrowUp", "KeyW"] },
@@ -32,6 +34,9 @@ export function World() {
         <PhysicsWorld>
           <Ground />
           <Principal />
+          <RoomShell room={ROOMS[0]}>
+            {/* Classroom interior objects will go here in Task 8 */}
+          </RoomShell>
         </PhysicsWorld>
         <CameraRig />
       </Canvas>
