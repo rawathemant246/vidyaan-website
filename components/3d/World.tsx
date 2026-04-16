@@ -7,6 +7,7 @@ import { Sky } from "./environment/Sky";
 import { Lights } from "./environment/Lights";
 import { PhysicsWorld } from "./PhysicsWorld";
 import { Principal } from "./Principal";
+import { CameraRig } from "./CameraRig";
 
 const keyboardMap = [
   { name: "forward", keys: ["ArrowUp", "KeyW"] },
@@ -32,6 +33,7 @@ export function World() {
           <Ground />
           <Principal />
         </PhysicsWorld>
+        <CameraRig />
       </Canvas>
     </KeyboardControls>
   );

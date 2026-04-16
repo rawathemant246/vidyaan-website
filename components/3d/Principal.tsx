@@ -7,6 +7,7 @@ import { RigidBody, CapsuleCollider } from "@react-three/rapier";
 import type { RapierRigidBody } from "@react-three/rapier";
 import * as THREE from "three";
 import { COLORS, PLAYER } from "@/lib/constants";
+import { usePlayerStore } from "@/hooks/usePlayerPosition";
 
 export function Principal() {
   const rigidBodyRef = useRef<RapierRigidBody>(null);
@@ -18,6 +19,7 @@ export function Principal() {
   const walkTimeRef = useRef(0);
   const targetRotationRef = useRef(0);
 
+  const setPosition = usePlayerStore((s) => s.setPosition);
   const [, getKeys] = useKeyboardControls();
 
   useFrame((_, delta) => {
@@ -54,6 +56,10 @@ export function Principal() {
         true
       );
     }
+
+    // Broadcast position for camera
+    const pos = rigidBodyRef.current.translation();
+    setPosition(new THREE.Vector3(pos.x, pos.y, pos.z));
 
     // Rotate character to face movement direction
     if (length > 0 && groupRef.current) {
