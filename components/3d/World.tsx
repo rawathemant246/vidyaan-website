@@ -9,6 +9,8 @@ import { PhysicsWorld } from "./PhysicsWorld";
 import { Principal } from "./Principal";
 import { CameraRig } from "./CameraRig";
 import { Classroom } from "./rooms/Classroom";
+import { PostProcessing } from "./effects/PostProcessing";
+import { Decorations } from "./environment/Decorations";
 
 const keyboardMap = [
   { name: "forward", keys: ["ArrowUp", "KeyW"] },
@@ -34,8 +36,10 @@ export function World() {
           <Ground />
           <Principal />
           <Classroom />
+          <Decorations />
         </PhysicsWorld>
         <CameraRig />
+        <PostProcessing />
       </Canvas>
     </KeyboardControls>
   );
