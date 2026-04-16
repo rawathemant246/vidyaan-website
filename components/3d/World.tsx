@@ -9,7 +9,14 @@ import { Lights } from "./environment/Lights";
 import { PhysicsWorld } from "./PhysicsWorld";
 import { Principal } from "./Principal";
 import { CameraRig } from "./CameraRig";
+import { FrontGate } from "./rooms/FrontGate";
 import { Classroom } from "./rooms/Classroom";
+import { ExamHall } from "./rooms/ExamHall";
+import { StaffRoom } from "./rooms/StaffRoom";
+import { Library } from "./rooms/Library";
+import { PrincipalOffice } from "./rooms/PrincipalOffice";
+import { AccountsOffice } from "./rooms/AccountsOffice";
+import { ParentRoom } from "./rooms/ParentRoom";
 import { Decorations } from "./environment/Decorations";
 
 const keyboardMap = [
@@ -35,7 +42,14 @@ export function World() {
             <PhysicsWorld>
               <Ground />
               <Principal />
+              <FrontGate />
               <Classroom />
+              <ExamHall />
+              <StaffRoom />
+              <Library />
+              <PrincipalOffice />
+              <AccountsOffice />
+              <ParentRoom />
               <Decorations />
             </PhysicsWorld>
           </Suspense>

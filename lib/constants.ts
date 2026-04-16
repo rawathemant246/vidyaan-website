@@ -12,7 +12,7 @@ export const COLORS = {
 export const PLAYER = {
   speed: 5,
   jumpForce: 4,
-  spawnPosition: [0, 2, 0] as [number, number, number],
+  spawnPosition: [0, 2, 22] as [number, number, number],
   cameraOffset: [0, 4, 8] as [number, number, number],
 } as const;
 
