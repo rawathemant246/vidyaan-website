@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { InteractionPrompt } from "@/components/shared/InteractionPrompt";
 
 const World = dynamic(
   () => import("@/components/3d/World").then((mod) => ({ default: mod.World })),
@@ -12,5 +13,10 @@ const World = dynamic(
 );
 
 export default function Home() {
-  return <World />;
+  return (
+    <>
+      <World />
+      <InteractionPrompt />
+    </>
+  );
 }

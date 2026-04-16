@@ -9,6 +9,7 @@ import { PhysicsWorld } from "./PhysicsWorld";
 import { Principal } from "./Principal";
 import { CameraRig } from "./CameraRig";
 import { RoomShell } from "./rooms/RoomShell";
+import { DoorTrigger } from "./rooms/DoorTrigger";
 import { ROOMS } from "@/lib/room-data";
 
 const keyboardMap = [
@@ -37,6 +38,10 @@ export function World() {
           <RoomShell room={ROOMS[0]}>
             {/* Classroom interior objects will go here in Task 8 */}
           </RoomShell>
+          <DoorTrigger
+            room={ROOMS[0]}
+            onEnter={() => console.log("Entering Classroom!")}
+          />
         </PhysicsWorld>
         <CameraRig />
       </Canvas>
